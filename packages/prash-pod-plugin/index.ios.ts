@@ -2,7 +2,11 @@ import { Label } from '@nativescript/core';
 import { PrashPodPluginCommon, PrashTextClassCommon } from './common';
 
 export class PrashPodPlugin extends PrashPodPluginCommon {
-   /* 
+    saySomething() {
+        return "Talking from inside pod prash-pod-plugin : Hellow World"
+    }
+
+    /* 
     let someGuy = PrashTest.alloc().init()
     console.log("We are in the PrashPodPlugin - iOS Guy")
     console.log("We are in the PrashPodPlugin")
