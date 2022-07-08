@@ -1,7 +1,10 @@
 {
   "main": "./src/main.ts",
   "dependencies": {
-    "@nativescript/core": "file:../../node_modules/@nativescript/core"
+    "@nativescript/core": "file:../../node_modules/@nativescript/core",
+    "@prash/prash-ios-trial1": "file:../../dist/packages/prash-ios-trial1",
+    "@prash/test-ios-native-package": "file:../../dist/packages/test-ios-native-package",
+    "@prash/prash-pod-plugin": "file:../../dist/packages/prash-pod-plugin"
   },
   "devDependencies": {
     "@nativescript/android": "~8.2.0",

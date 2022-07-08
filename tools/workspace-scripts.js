@@ -55,13 +55,34 @@ module.exports = {
       },
     },
     '⚙️': {
-      script: `npx cowsay "@nativescript/* packages will keep your ⚙️ cranking"`,
-      description: '_____________  @nativescript/*  _____________',
+      script: `npx cowsay "@prash/* packages will keep your ⚙️ cranking"`,
+      description: '_____________  @prash/*  _____________',
     },
     // packages
     // build output is always in dist/packages
-    '@nativescript': {
-      'build-all': {
+    '@prash': {
+      // @prash/prash-ios-trial1
+			'prash-ios-trial1': {
+				build: {
+					script: 'nx run prash-ios-trial1:build.all',
+					description: '@prash/prash-ios-trial1: Build',
+				},
+			},
+			// @prash/test-ios-native-package
+			'test-ios-native-package': {
+				build: {
+					script: 'nx run test-ios-native-package:build.all',
+					description: '@prash/test-ios-native-package: Build',
+				},
+			},
+			// @prash/prash-pod-plugin
+			'prash-pod-plugin': {
+				build: {
+					script: 'nx run prash-pod-plugin:build.all',
+					description: '@prash/prash-pod-plugin: Build',
+				},
+			},
+			'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
       },
@@ -71,8 +92,20 @@ module.exports = {
       description: '_____________  Focus (VS Code supported)  _____________',
     },
     focus: {
-      reset: {
-        script: 'nx g @nativescript/plugin-tools:focus-packages',
+      'prash-ios-trial1': {
+				script: 'nx run prash-ios-trial1:focus',
+				description: 'Focus on @prash/prash-ios-trial1',
+			},
+			'test-ios-native-package': {
+				script: 'nx run test-ios-native-package:focus',
+				description: 'Focus on @prash/test-ios-native-package',
+			},
+			'prash-pod-plugin': {
+				script: 'nx run prash-pod-plugin:focus',
+				description: 'Focus on @prash/prash-pod-plugin',
+			},
+			reset: {
+        script: 'nx g @prash/plugin-tools:focus-packages',
         description: 'Reset Focus',
       },
     },

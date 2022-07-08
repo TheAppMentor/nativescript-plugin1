@@ -7,7 +7,13 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 	demos = [
 	{
-		name: 'add a package first'
+		name: 'prash-ios-trial1'
+	},
+	{
+		name: 'prash-pod-plugin'
+	},
+	{
+		name: 'test-ios-native-package'
 	}
 ];
 }

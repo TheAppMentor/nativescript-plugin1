@@ -1,0 +1,35 @@
+{
+  "name": "@prash/test-ios-native-package",
+  "version": "1.0.0",
+  "description": "Add a plugin description",
+  "main": "index",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "6.0.0",
+      "android": "6.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NativeScript/plugins.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "TypeScript",
+    "iOS",
+    "Android"
+  ],
+  "author": {
+    "name": "prashanth.moorthy@gmail.com",
+    "email": "prashanth.moorthy@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/NativeScript/plugins/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/NativeScript/plugins",
+  "readmeFilename": "README.md",
+  "bootstrapper": "@nativescript/plugin-seed"
+}

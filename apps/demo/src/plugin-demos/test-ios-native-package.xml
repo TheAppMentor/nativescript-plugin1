@@ -1,0 +1,14 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page" xmlns:lm="@prash/test-ios-native-package">
+    <Page.actionBar>
+        <ActionBar title="test-ios-native-package" icon="" class="action-bar">
+        </ActionBar>
+    </Page.actionBar>
+    <StackLayout class="p-20">
+        <ScrollView class="h-full">
+          <StackLayout>
+            <Button text="Test test-ios-native-package" tap="{{ testIt }}" class="btn btn-primary"/>
+            <lm:RAOView />
+          </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</Page>

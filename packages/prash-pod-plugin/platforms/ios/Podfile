@@ -1,0 +1,1 @@
+pod 'DemoPod', :git => 'https://github.com/TheAppMentor/DemoPod.git'

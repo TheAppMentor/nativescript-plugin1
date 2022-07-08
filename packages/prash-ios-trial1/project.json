@@ -1,0 +1,72 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/prash-ios-trial1",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/prash-ios-trial1",
+        "tsConfig": "packages/prash-ios-trial1/tsconfig.json",
+        "packageJson": "packages/prash-ios-trial1/package.json",
+        "main": "packages/prash-ios-trial1/index.d.ts",
+        "assets": [
+          "packages/prash-ios-trial1/*.md",
+          "packages/prash-ios-trial1/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/prash-ios-trial1/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "node tools/scripts/build-finish.ts prash-ios-trial1"
+        ],
+        "parallel": false
+      },
+      "outputs": [
+        "dist/packages/prash-ios-trial1"
+      ],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx g @nativescript/plugin-tools:focus-packages prash-ios-trial1"
+        ],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/prash-ios-trial1/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

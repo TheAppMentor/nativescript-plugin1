@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page"
+    xmlns:lm="@prash/prash-pod-plugin">
+<Page.actionBar>
+    <ActionBar title="prash-pod-plugin" icon="" class="action-bar">
+    </ActionBar>
+</Page.actionBar>
+<StackLayout class="p-20">
+    <ScrollView class="h-full">
+        <StackLayout>
+            <Button text="Test prash-pod-plugin" tap="{{ testIt }}" class="btn btn-primary"/>
+            <Label text="Lores Ipsum... Text Crap" textWrap="true"></Label>
+            <lm:PrashTextClass />
+        </StackLayout>
+    </ScrollView>
+</StackLayout>
+</Page>

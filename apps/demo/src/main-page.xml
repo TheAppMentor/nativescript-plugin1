@@ -6,6 +6,10 @@
     <ScrollView class="h-full">
       <StackLayout>
         <Button text="add a package first" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+        <Button text="prash-ios-trial1" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+        <Button text="Some Rubbish Button" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="test-ios-native-package" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="prash-pod-plugin" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
       </StackLayout>
     </ScrollView>
   </StackLayout>

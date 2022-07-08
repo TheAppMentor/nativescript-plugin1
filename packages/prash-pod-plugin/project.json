@@ -1,0 +1,72 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/prash-pod-plugin",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/prash-pod-plugin",
+        "tsConfig": "packages/prash-pod-plugin/tsconfig.json",
+        "packageJson": "packages/prash-pod-plugin/package.json",
+        "main": "packages/prash-pod-plugin/index.d.ts",
+        "assets": [
+          "packages/prash-pod-plugin/*.md",
+          "packages/prash-pod-plugin/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/prash-pod-plugin/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "node tools/scripts/build-finish.ts prash-pod-plugin"
+        ],
+        "parallel": false
+      },
+      "outputs": [
+        "dist/packages/prash-pod-plugin"
+      ],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx g @nativescript/plugin-tools:focus-packages prash-pod-plugin"
+        ],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/prash-pod-plugin/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

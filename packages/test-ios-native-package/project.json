@@ -1,0 +1,72 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/test-ios-native-package",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/test-ios-native-package",
+        "tsConfig": "packages/test-ios-native-package/tsconfig.json",
+        "packageJson": "packages/test-ios-native-package/package.json",
+        "main": "packages/test-ios-native-package/index.d.ts",
+        "assets": [
+          "packages/test-ios-native-package/*.md",
+          "packages/test-ios-native-package/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/test-ios-native-package/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "node tools/scripts/build-finish.ts test-ios-native-package"
+        ],
+        "parallel": false
+      },
+      "outputs": [
+        "dist/packages/test-ios-native-package"
+      ],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx g @nativescript/plugin-tools:focus-packages test-ios-native-package"
+        ],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/test-ios-native-package/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
